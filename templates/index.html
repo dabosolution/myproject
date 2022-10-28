@@ -1,0 +1,184 @@
+{% extends "base.html" %}
+{% block content %}
+    <style>
+        @media screen and (min-width:768px) {
+            body {
+            font-family: "Roboto", sans-serif;
+            font-size: 18px;
+            background-color: #fdfdfd;
+        }
+        #for {
+    font-size: 50px;
+    margin-bottom: 80px;
+    text-transform: uppercase;
+    font-family: cursive;
+}
+
+        .head_text {
+            color: white;
+        }
+
+        .card {
+            box-shadow: 0 16px 48px #E3E7EB;
+        }
+        .come{
+            border: 2px solid white;
+            border-radius: 20px;
+            box-shadow: 10px 10px 10px 3px rgb(64, 63, 62);
+        }
+        h3{
+            color:white;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .text-light{
+            text-align: center;
+        }
+        
+        h3{
+            font-size: 29px;
+            background: orange;
+            padding: 10px;
+            margin-top: 2px;
+            border-radius: 15px;
+        }
+        #sel img:hover {
+                        filter: blur(5px);
+
+                  }
+
+        
+
+                  .carousel-caption h5 {
+                        font-size: 50px;
+                        font-weight: bold;
+                        font-family: cursive;
+
+                  }
+
+                  
+
+                  .carousel-caption {
+                        margin-bottom: 10px;
+                        padding: 50px;
+                        text-transform: uppercase;
+                        font-weight: bold;
+                  }
+
+                  #label {
+                        color: rgb(98, 75, 34);
+                        font-size: 50px;
+                  }
+                  #some{
+    font-size: 50px;
+    margin-bottom: 40px;
+    color: orangered;
+}
+
+        }
+        @media screen and (max-width:768px) {
+            body {
+            font-family: "Roboto", sans-serif;
+            font-size: 18px;
+            background-color: #fdfdfd;
+        }
+
+        .head_text {
+            color: white;
+        }
+
+        .card {
+            box-shadow: 0 16px 48px #E3E7EB;
+        }
+        .come{
+            border: 2px solid white;
+            border-radius: 20px;
+            box-shadow: 10px 10px 10px 3px rgb(64, 63, 62);
+        }
+        h3{
+            color:white;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .text-light{
+            text-align: center;
+        }
+        
+        h3{
+            font-size: 29px;
+            background: orange;
+            padding: 10px;
+            margin-top: 2px;
+            border-radius: 15px;
+        }
+        }
+    </style>
+   
+        <!-- <div class="overlay"></div> -->
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner" id="sel">
+                <div class="carousel-item active">
+                    <img src="media/Tinubu-1.webp" class="d-block w-100"  height="550px" alt="...">
+                    <div  class="carousel-caption d-none d-md-block">
+                        <h5 id="label" style="color:rgba(242, 9, 234, 0.874);">BREAKINGS - LATEST NEWS FOR TODAY </h5>
+                       
+                       
+                    </div>
+                </div>
+                <div class="carousel-item " >
+                    <img src="media/perfume.jpg" class="d-block w-100" height="550px" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 id="some">Breaking news In Nigeria </h5>
+                       
+                     
+                    </div>            
+                </div>
+                <div class="carousel-item ">
+                    <img src="media/Charles.jpg" class="d-block w-100" height="550px"  alt="">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 id="for">A New King In london</h5>
+                        
+                       
+                    </div>            
+                </div>
+                <div class="carousel-item">
+                    <img src="media/Votes.jpg" class="d-block w-100" height="550px" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 id="label" style="color:white ;">Today Breaking News for Voting to Candidates </h5>
+                        
+                       
+                    </div>            
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div><br>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-md-8 mt-3 left">
+                {% for post in post_list %}
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                        <p class="card-text text-muted h6">{{ post.author }} | {{ post.created_on}} </p>
+                        <img src="{{post.picture.url }}" class="image-fluid" width="100%" alt="">
+                        <p class="card-text">{{post.content|slice:":200" }}</p>
+                        <a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% block sidebar %} 
+            {% include 'sidebar.html' %} 
+            {% endblock sidebar %}
+        </div>
+    </div>
+    {%endblock%}
