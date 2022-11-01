@@ -16,18 +16,13 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script>
-  </script>
-
   <!-- ==== favicon === -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
   <style>
+  body{
+      overflow-X: hidden;
+  }
     @media screen and (min-width:768px) {
       .navbar {
         position: fixed;
@@ -181,11 +176,11 @@
         list-style-type: none;
         font-size: 20px;
         padding: 10px;
-       
+
       }
     }
 
-    /* =================  media screen for the small screen start 
+    /* =================  media screen for the small screen start
         here ================================ */
 
     @media screen and (max-width:768px) {
@@ -315,8 +310,9 @@
       }
 
       #me {
-        width: 50%;
+        width: 100%;
         padding: 10px;
+        padding-bottom:30px;
         ;
       }
 
@@ -333,13 +329,14 @@
         list-style-type: none;
         font-size: 20px;
         padding: 10px;
-        
+
       }
 
       .navbar-brand {
         font-weight: bold;
         font-size: 24px;
         color: #25356d;
+
       }
     }
   </style>
@@ -348,7 +345,7 @@
 <body>
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">DABO BLOG WEBSITE</a>
+      <a class="navbar-brand" href="{% url 'home' %}">DABO BLOG</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -367,6 +364,21 @@
           <li class="nav-item text-black">
             <a class="nav-link font-weight-bold" href="{% url 'contact' %}">Contact</a>
           </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Hi Welcome , {{user.first_name}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout">LOGOUT</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="register">SIGN UP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login">LOGIN</a>
+          </li>
+          {% endif %}
         </ul>
         <form class="d-flex" role="search" action="search">
           <input class="form-control me-2" name="q" type="search" placeholder="Search" aria-label="Search">
@@ -378,7 +390,7 @@
   <!-- ==== my image ===== -->
 
   <div class="master"><br><br><br>
-    <img src="media/2.jpg" width="100%"  alt="">
+    <img src="media/Buhari.gif" class="img-fluid img-thumbnail" width="100%"  alt="">
     <h1 id="out">About page </h1>
   </div>
   <div class="container">
@@ -426,13 +438,13 @@
       </div>
       <div class="col-lg-6">
         <h2>Company History</h2><br>
-        <p style="font-size: 23px;">Valuemax is a fast growing Software development company with special interest in providing solutions that
+        <p style="font-size: 17px;">Valuemax is a fast growing Software development company with special interest in providing solutions that
           address specific local ICT needs in Nigeria and Africa continent by extension. Currently we focus on web
           application development, business/organization website design, mobile App development, Training and human
           Resource Development.
           With more than a decade experience in the industry, we provide cutting edge web/mobile technology services at
           most competitive price in the market.</p><br><br>
-       
+
       </div>
     </div>
   </div><br><br><br>
@@ -470,19 +482,19 @@
     </div><br><br><br>
 
   </div>
-  <div class="container" id="me" style="background-color:rgb(215, 210, 210) ;margin-top: -50px;border-radius: 10px;">
+  <div class="container" id="me" style="background-color:gray ;margin-top: -50px;border-radius: 10px;color:white;">
     <div class="row">
-      <div class="col-lg-4" id="nam">
+      <div class="col-lg-4 col-sm-4" id="nam">
         <img src="media/gender.jpg" width="103%" alt="">
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus iure a consectetur facilis animi! Nam
           dignissimos dolorum est, modi doloribus et impedit aliquid enim eligendi aut facilis veritatis!</p>
       </div>
-      <div class="col-lg-4" id="lore">
+      <div class="col-lg-4 col-sm-4" id="lore">
         <img src="media/b2.jpg" width="103%" alt="">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus dicta omnis deserunt? Architecto,
           aspernatur sit! Excepturi non minus necessitatibus nemo, alias fuga ad aperiam </p>
       </div>
-      <div class="col-lg-4" id="fuga">
+      <div class="col-lg-4 col-sm-4" id="fuga">
         <img src="media/med.jpg" alt="" width="103%">
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id optio enim rem repellat delectus fugit, natus
           molestias molestiae eaque corporis sed, adipisci, suscipit modi odio nihil ratione. Ut, culpa inventore. Lorem
@@ -511,7 +523,7 @@
             <li>Buy Data</li>
             <li>Services</li>
             <li>News</li>
-           
+
           </ul>
         </div>
         <div class="col-lg-3">
@@ -523,7 +535,7 @@
             <li>Mobile App</li>
             <li>CMS based Web</li>
             <li>Design</li>
-           
+
           </ul>
         </div>
         <div class="col-lg-3">
@@ -532,7 +544,6 @@
             Opp UI Post Office, 3rd <br>
             Building after FCMB;<br>
             UI Ojoo Road, Ibadan
-            admin@valuemaxoniline.com <br>
             +2349097221954</span>
         </div>
       </div>

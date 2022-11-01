@@ -13,14 +13,11 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
       </script>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
-            integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
-      </script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
-            integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
-      </script>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
       <style>
+        body{
+                overflow-X: hidden;
+            }
             @media screen and (min-width:990px) {
                   * {
                         box-sizing: border-box;
@@ -43,7 +40,7 @@
                         display: block;
                         width: 30%;
                         padding: 10px;
-                       
+
                         font-size: 16px;
                         font-family: inherit;
                         border-radius: 5px;
@@ -122,7 +119,7 @@
                         padding: 20px 40px;
                         text-align: center;
                         border-bottom: 2px solid #f0f0f0;
-                        
+
                   }
 
                   .all {
@@ -139,7 +136,7 @@
                         list-style-type: none;
                         font-size: 20px;
                         padding: 10px;
-                        
+
                   }
 
                   .navbar ul li a {
@@ -195,6 +192,24 @@
                         padding-bottom: 30px;
 
                   }
+                  button:hover{
+                        width: 30%;
+                        background-color: #25356d;
+                        transition: all 2ms ease-in;
+                  }
+                  button {
+                        transition: all 1ms ease-in;
+                        background-color: #8e44ad;
+                        border: 2px solid #8e44ad;
+                        color: white;
+                        display: block;
+                        width: 30%;
+                        padding: 10px;
+
+                        font-size: 16px;
+                        font-family: inherit;
+                        border-radius: 5px;
+                  }
 
                   .navbar-brand {
                         font-weight: bold;
@@ -245,11 +260,6 @@
                         padding: 10px;
                         cursor: pointer;
                   }
-
-                  #amet ul li:hover {
-                        color: orange;
-                  }
-
                   .navbar ul li a {
                         color: white;
                         font-size: 18px;
@@ -281,6 +291,20 @@
                         display: block;
                         margin: auto;
                   }
+                  .header h3 {
+                        margin: 0;
+                        font-family:cursive;
+                        font-weight: bold;
+                        font-size: 35px;
+                  }
+
+                  .header {
+                        background-color: white;
+                        padding: 20px 40px;
+                        text-align: center;
+                        border-bottom: 2px solid #f0f0f0;
+
+                  }
             }
       </style>
 </head>
@@ -290,12 +314,12 @@
 
       <nav class="navbar navbar-expand-lg ">
             <div class="container-fluid">
-                  <a class="navbar-brand" href="{% url 'home' %}">DABO BLOG WEBSITE</a>
-                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                  <a class="navbar-brand" href="{% url 'home' %}">DABO BLOG</a>
+                  <span class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                  </button>
+                  </span>
                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                               <li class="nav-item">
@@ -310,6 +334,21 @@
                               <li class="nav-item text-black">
                                     <a class="nav-link font-weight-bold" href="{% url 'contact' %}">Contact</a>
                               </li>
+                              {% if user.is_authenticated %}
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Hi Welcome , {{user.first_name}}</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="logout">LOGOUT</a>
+                              </li>
+                              {% else %}
+                              <li class="nav-item">
+                                <a class="nav-link" href="register">SIGN UP</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="login">LOGIN</a>
+                              </li>
+                              {% endif %}
                         </ul>
                         <form class="d-flex" role="search" action="search">
                               <input class="form-control me-2" name="q" type="search" placeholder="Search for only news"
@@ -362,7 +401,7 @@
                   }
             }
 
-            // this is validations for the number 
+            // this is validations for the number
 
             function dabofresh() {
                   var x = document.getElementById('ber').value;
@@ -414,17 +453,19 @@
                   <div class="form-group">
                         {% for message in messages %}
                         {% if message %}
-                        <div class="alert alert-success " role="alert">
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
                               {{message}}
+                        <span type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></span>
                         </div>
                               {% else  %}
-                        <div class="alert alert-danger " role="alert">
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
                               {{message}}
+                        <span type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></span>
                         </div>
-                             
-                       
+
+
                         {% endif %}
-                       
+
                         {% endfor %}
                   </div>
                   <div class="header">
@@ -455,7 +496,7 @@
                   </div><br>
 
                   <button id="now" type="submit">Send Now </button><br>
-                  
+
             </form>
       </section>
       <br><br><br>
@@ -471,7 +512,7 @@
                                     <br> offers varying
                                     services, customers <br> satisfaction is our drive
                                     without <br> mincing our standard!</p><br>
-                                    
+
                         </div>
                         <div class="col-lg-3">
                               <ul>
@@ -480,7 +521,7 @@
                                     <li>Hosting <br> and Domain</li>
                                     <li>Buy Data</li>
                                     <li>Services</li>
-                                   
+
                               </ul>
                         </div>
                         <div class="col-lg-3">
@@ -491,7 +532,7 @@
                                     <li>Data Science</li>
                                     <li>Mobile App</li>
                                     <li>CMS based Web</li>
-                                    
+
                               </ul>
                         </div>
                         <div class="col-lg-3">
@@ -500,7 +541,6 @@
                                     Opp UI Post Office, 3rd <br>
                                     Building after FCMB;<br>
                                     UI Ojoo Road, Ibadan
-                                    admin@valuemaxoniline.com <br>
                                     +2349097221954</span>
                         </div>
                   </div>

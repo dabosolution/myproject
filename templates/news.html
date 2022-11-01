@@ -12,13 +12,10 @@
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
       </script>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
-            integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
-      </script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
-            integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
-      </script>
       <style>
+            body{
+                overflow-X: hidden;
+            }
             @media screen and (min-width:768px) {
                   #the h5 {
                         font-size: 55px;
@@ -31,7 +28,7 @@
                         border-radius: 20px;
                         box-shadow: 0px 10px 0px 4px gray;
                         margin-left: 15px;
-                        
+
                   }
 
                   #post {
@@ -40,26 +37,23 @@
                         color: black;
                         text-align: center;
                         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-                       
+
                         border-radius: 20px 100px 40px 40px ;
                   }
 
-                  
+
 
                   .mad {
                         background: gray;
                         background-image: linear-gradient(to bottom right, brown, orange);
-                        padding: 200px;
+                        padding: 140px;
                         border: 1px solid;
                         border-radius: 10px;
                   }
 
                   .mad p {
-                        font-size: 50px;
-                        position: absolute;
-                        right: 510px;
-                        padding: 30px;
-                        top: 190px;
+                        font-size: 30px;
+                        text-align: center;
                         color: white;
                         font-family: saturation;
 
@@ -274,29 +268,112 @@
 
             }
 
-            /* =================  media screen for the small screen start 
+
+            /* =================  media screen for the small screen start
             here ================================ */
 
             @media screen and (max-width:768px) {
+                  #the h5 {
+                        font-size: 55px;
+                        font-weight: bold;
+
+                  }
+                  #bash{
+                        border: 2px solid;
+                        margin-bottom: 30px;
+                        border-radius: 20px;
+                        box-shadow: 0px 10px 0px 4px gray;
+                        margin-left: 15px;
+
+                  }
+
+                  #post {
+                        padding: 20px;
+                        background-color:black;
+                        border-radius:20px;
+                        color: white;
+                        text-align: center;
+                        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                  }
+
+
+
+                  .mad {
+                        background: gray;
+                        background-image: linear-gradient(to bottom right, brown, orange);
+                        padding: 100px;
+                        margin-top:10px;
+                  }
+
+                  .mad p {
+                        font-size: 20px;
+                        text-align: center;
+                        color: white;
+                        font-family: saturation;
+
+                  }
+
+                  .mad p a:hover {
+                        color: green;
+                  }
+
+                  .mad p a {
+                        text-decoration: none;
+                        color: white;
+                  }
+
+                  #the p {
+                        font-size: 25px;
+                        margin-bottom: -70px;
+                  }
+
                   #te {
                         border: none;
                         border-bottom: 2px solid;
-                        border-left: 2px solid;
                         border-top: 2px solid;
-                        margin-bottom: 1em;
                         border-radius: 20px;
                         box-shadow: 5px 10px 10px;
                         padding-bottom: 20px;
+                        width: 90%;
+                        margin: 0 auto;
+                        margin-bottom: 10px;
+                  }
+                  #sel img:hover {
+                        filter: blur(5px);
+
+                  }
+
+                  #for {
+                        font-size: 30px;
+                        color: rgb(14, 34, 145);
+                  }
+
+                  .carousel-caption h5 {
+                        font-size: 50px;
+                        font-weight: bold;
+
+                  }
+
+                  #some {
+                        color: orange;
+                        font-size: 35px;
+
+                  }
+
+                  .carousel-caption {
+                        margin-bottom: 150px;
+                        padding: 50px;
+                        text-transform: uppercase;
+                        font-weight: bold;
+                  }
+
+                  #label {
+                        color: rgb(98, 75, 34);
+                        font-size: 50px;
                   }
 
                   #war img {
                         transition: 400ms;
-                  }
-
-                  .navbar-brand {
-                        font-weight: bold;
-                        font-size: 24px;
-                        color: #25356d;
                   }
 
                   .navbar {
@@ -337,6 +414,31 @@
 
                   }
 
+                  #sit {
+                        border: none;
+                        margin-top: 0px;
+                        position: relative;
+                        font-size: 15px;
+                        padding-left: 50px;
+                        box-shadow: 14px 10px 10px;
+                        border-radius: 5px;
+                        border-left: none;
+
+                  }
+
+                  #sit a:hover {
+                        text-decoration: none;
+                        color: green;
+
+                  }
+
+                  .navbar ul {
+                        margin: 0 auto;
+                        text-transform: uppercase;
+                        font-family:cursive;
+
+                  }
+
                   #war img:hover {
                         transform: scale(1.1)
                   }
@@ -353,39 +455,17 @@
                         color: white;
                   }
 
-                  #bo img {
-                        cursor: pointer;
-                        transition: all 400ms;
-                        border: 1px solid;
-                        width: 84%;
-                        margin-left: 50px;
-
-                  }
-
                   #bo img:hover {
                         transform: scale(1.1);
-
                   }
 
-                  #of img {
-                        transition: all 400ms;
-                        border: 1px solid;
-                        border-radius: 10px;
-                        margin-top: 20px;
-                        margin-left: 50px;
-                        width: 80%;
+                  .col-lg-6 img {
+                        transform: 400ms;
 
                   }
 
                   .col-lg-6 img:hover {
                         transform: scale(1.1)
-                  }
-
-                  #sit {
-                        border: none;
-                        border-left: 1px solid;
-                        margin-top: 20px;
-                        position: relative;
                   }
 
                   #b {
@@ -427,53 +507,19 @@
                         list-style-type: none;
                         font-size: 20px;
                         padding: 10px;
-                        cursor: pointer;
+
                   }
 
-                  #amet ul li:hover {
-                        color: orange;
-                  }
-
-                  #A {
-                        position: absolute;
-                        top: 590px;
-                        color: white;
-                        padding: 10px;
-                        left: 130px;
-                        background: green;
-                  }
-
-                  #to {
-                        position: absolute;
-                        top: 780px;
-                        padding: 5px;
-                        color: white;
-                        left: 70px;
-                        background: green;
-                  }
-
-                  #gos {
-                        position: absolute;
-                        top: 1000px;
-                        padding: 10px;
-                        color: white;
-                        left: 70px;
-                        background: green;
-                  }
-
-                  #on {
-                        position: absolute;
-                        top: 1194px;
-                        padding: 15px;
-                        color: white;
-                        left: 100px;
-                        background: green;
+                  .navbar-brand {
+                        font-weight: bold;
+                        font-size: 22px;
+                        color: #25356d;
                   }
 
                   #sit a {
                         font-size: 30px;
-
                   }
+
             }
       </style>
 </head>
@@ -484,7 +530,7 @@
 
       <nav class="navbar navbar-expand-lg ">
             <div class="container-fluid">
-                  <a class="navbar-brand" href="{% url 'home' %}">DABO BLOG WEBSITE</a>
+                  <a class="navbar-brand" href="{% url 'home' %}">DABO BLOG</a>
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -504,6 +550,21 @@
                               <li class="nav-item text-black">
                                     <a class="nav-link font-weight-bold" href="{% url 'contact' %}">Contact</a>
                               </li>
+                              {% if user.is_authenticated %}
+                              <li class="nav-item">
+                                <a class="nav-link" href="#">Hi Welcome , {{user.first_name}}</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="logout">LOGOUT</a>
+                              </li>
+                              {% else %}
+                              <li class="nav-item">
+                                <a class="nav-link" href="register">SIGN UP</a>
+                              </li>
+                              <li class="nav-item">
+                                <a class="nav-link" href="login">LOGIN</a>
+                              </li>
+                              {% endif %}
                         </ul>
                         <form class="d-flex" role="search" action="search">
                               <input class="form-control me-2" name="q" required type="search" placeholder="Search For only News About Nigeria"
@@ -517,14 +578,14 @@
 
       <!-- ===== Breaking news start here==========  -->
       <div class="mad">
-            {% for m in blog %}
+
             <p><a href="{% url 'home' %}">BREAKING NEWS</a></p>
-            {% endfor %}
+
       </div>
       <br>
       <div class="container-fluid">
 
-            <div class="row" style="margin-left:20px ;">
+            <div class="row" >
                   <div class="col-lg-8" id="bo">
                         {% for p in blog %}
                         <div class="row" id="te">
@@ -547,10 +608,9 @@
                               {% for p in blog %}
                               <div id="bash" >
 
-                                    <span style="font-size:25px;"><a
-                                                href="{% url 'post_detail' p.slug %}">{{p.title}}</a></span><br>
-                                  
-                                    <img src="{{ p.picture.url }}" width="100%" height="120px" alt="">
+                                    <span style="font-size:25px;"><a style="text-align:center;" href="{% url 'post_detail' p.slug %}">{{p.title}}</a></span><br>
+
+                                    <img src="{{ p.picture.url }}" width="100%" class="image-fluid" height="120px" alt="">
                                     <span>{{p.created_on}}</span>
                                     <span>{{p.status}}</span>
                                     <hr>
@@ -603,7 +663,6 @@
                                     Opp UI Post Office, 3rd <br>
                                     Building after FCMB;<br>
                                     UI Ojoo Road, Ibadan
-                                    admin@valuemaxoniline.com <br>
                                     +2349097221954
                               </span>
                         </div>

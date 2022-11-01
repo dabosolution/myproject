@@ -6,11 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Read More Pages</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
-  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <style>
     @media screen and (min-width:768px) {
@@ -65,7 +62,6 @@
         color: white;
         padding: 40px;
       }
-
       #amet ul li {
         list-style-type: none;
         font-size: 20px;
@@ -73,7 +69,7 @@
 
       }
     }
-    @media screen and (max-width:768px) {
+     @media screen and (max-width:768px) {
       .navbar {
         position: fixed;
         width: 100%;
@@ -125,10 +121,9 @@
         color: white;
         padding: 40px;
       }
-
       #amet ul li {
         list-style-type: none;
-        font-size:18px;
+        font-size: 20px;
         padding: 10px;
 
       }
@@ -139,7 +134,7 @@
 <body>
   <nav class="navbar navbar-expand-lg ">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">DABO BLOG WEBSITE</a>
+      <a class="navbar-brand" href="{% url 'home' %}">DABO BLOG</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -158,7 +153,27 @@
           <li class="nav-item text-black">
             <a class="nav-link font-weight-bold" href="{% url 'contact' %}">Contact</a>
           </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="#">Hi Welcome , {{user.first_name}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="logout">LOGOUT</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="register">SIGN UP</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login">LOGIN</a>
+          </li>
+          {% endif %}
         </ul>
+        <!-- <form class="d-flex" role="search" action="search">
+                      <input class="form-control me-2" name="q" type="search" placeholder="Search for only news"
+                            aria-label="Search">
+                      <button class="btn btn-success" type="submit">Search</button>
+                </form> -->
       </div>
     </div>
   </nav><br><br><br>
@@ -220,13 +235,13 @@
 
           </ul>
         </div>
-        <div class="col-lg-3" style="padding:17px ;">
+        <div class="col-lg-3" style="padding:20px ;">
           <h3 style="color:orange ;">OFFICES</h3>
           <span style="color:white;font-size: 20px;">30, Old Finbank Building;<br>
             Opp UI Post Office, 3rd <br>
             Building after FCMB;<br>
-            UI Ojoo Road, Ibadan <br/>
-            dabosolution1999@gmail.com<br>
+            UI Ojoo Road, Ibadan <br>
+            dabosolution199@gmail.com <br>
             +2349097221954</span>
         </div>
       </div>

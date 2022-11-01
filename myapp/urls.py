@@ -12,6 +12,10 @@ urlpatterns = [
     path('news',views.news,name='news'),
     # path('another',views.another,name='another')
 
+    path("register", views.register, name="register"),
+    path("login", views.login, name="login"),
+    path("logout", views.logout, name="logout")
+
 ]
 
 if DEBUG:
