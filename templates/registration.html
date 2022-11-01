@@ -16,12 +16,19 @@
 
 <body>
 	<form action="register" method="post" class="form-horizontal">
-		
+		<div class="form-group">
+            {% for message in messages %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{message}}
+            <span type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></span>
+          </div>
+            {% endfor %}
+        </div>
 		{% csrf_token %}
 		<div class="mx-auto" style="width: 400px;">
 
 			<div class="col-xs-8 col-xs-offset-4">
-				<h2 style="text-align:center;">SIGN UP</h2>
+				<h2 style="text-align:center;"><a href="{% url 'home' %}" style="text-decoration: none;color:black;">SIGN UP</a></h2>
 			</div>
 			<hr />
 			<div class="form-group">
@@ -59,13 +66,7 @@
 			<a class="btn btn-dark" href="login" role="button">LOGIN</a>
 		</div>
 	</form>
-	<div class="form-group">
-		{% for message in messages %}
-		<div class="alert alert-danger" role="alert">
-			{{message}}
-		</div>
-		{% endfor %}
-	</div>
+	
 
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
